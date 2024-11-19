@@ -1,12 +1,14 @@
 public class MarsRoverOperationImpl implements MarsRoverOperation {
     private Direction direction;
+    private int x = 0;
+    private int y = 0;
     public MarsRoverOperationImpl(){
         direction = Direction.N;
     }
 
     @Override
     public String showStatus() {
-        return "0:0:"+direction;
+        return x+":"+y+":"+direction;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
             case S -> direction = Direction.E;
             case E -> direction = Direction.N;
         }
-        return "0:0:"+direction;
+        return x+":"+y+":"+direction;
     }
 
     @Override
@@ -28,12 +30,11 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
             case S -> direction = Direction.W;
             case E -> direction = Direction.S;
         }
-        return "0:0:"+direction;
+        return  x+":"+y+":"+direction;
     }
 
     @Override
     public String move(String command,String status) {
-        return "";
+        return x + ":" + y + ":" + direction;
     }
-
 }
