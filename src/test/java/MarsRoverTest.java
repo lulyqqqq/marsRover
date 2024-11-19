@@ -123,6 +123,42 @@ public class MarsRoverTest {
         assertEquals("0:1:N",report);
     }
 
+    @Test
+    public void when_orient_east_and_move(){
+        //Given
+        MarsRover marsRover = new MarsRover();
+        //When
+        marsRover.executeCommand("R");
+        String report = marsRover.executeCommand("M");
+        //Then
+        assertEquals("1:0:E",report);
+    }
+
+
+    @Test
+    public void when_orient_south_and_move(){
+        //Given
+        MarsRover marsRover = new MarsRover();
+        //When
+        marsRover.executeCommand("R");
+        marsRover.executeCommand("R");
+        String report = marsRover.executeCommand("M");
+        //Then
+        assertEquals("0:-1:S",report);
+    }
+
+    @Test
+    public void when_orient_west_and_move(){
+        //Given
+        MarsRover marsRover = new MarsRover();
+        //When
+        marsRover.executeCommand("R");
+        marsRover.executeCommand("R");
+        marsRover.executeCommand("R");
+        String report = marsRover.executeCommand("M");
+        //Then
+        assertEquals("-1:0:W",report);
+    }
 
 
 }
