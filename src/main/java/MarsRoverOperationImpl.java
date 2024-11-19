@@ -44,4 +44,9 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
 
         return x + ":" + y + ":" + direction;
     }
+
+    @Override
+    public String moreCommand(String command,String status) {
+        return x + ":" + y + ":" + direction;
+    }
 }

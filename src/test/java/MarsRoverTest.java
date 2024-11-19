@@ -161,7 +161,15 @@ public class MarsRoverTest {
     }
 
 
-
+    @Test
+    public void when_orient_west_and_more_operation(){
+        //Given
+        MarsRover marsRover = new MarsRover();
+        //When
+        String report = marsRover.executeMoreCommand("MLM","");
+        //Then
+        assertEquals("-1:1:W",report);
+    }
 
 
 }
