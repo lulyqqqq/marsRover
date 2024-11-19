@@ -7,6 +7,9 @@ public class MarsRoverTest {
     public void should_initialize_mars_rover(){
         //Given
         MarsRover marsRover = new MarsRover();
-        assertNotNull(marsRover);
+        //When
+        String report = marsRover.showStatus();
+        //Then
+        assertEquals("0:0:N",report);
     }
 }
