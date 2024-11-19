@@ -16,6 +16,8 @@ public class MarsRover {
                 case S -> direction = Direction.E;
                 case E -> direction = Direction.N;
             }
+        }else if ("R".equals(command)){
+            return "";
         }
         return "0:0:"+direction;
     }
