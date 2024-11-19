@@ -5,5 +5,5 @@ public interface MarsRoverOperation {
 
     String turnRight();
 
-    String move(String command,String status);
+    String move();
 }

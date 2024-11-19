@@ -10,8 +10,7 @@ public class MarsRover {
         }else if ("R".equals(command)){
             report = marsRoverOperation.turnRight();
         }else if ("M".equals(command)){
-            report = showStatus();
-            report = marsRoverOperation.move(command,report);
+            report = marsRoverOperation.move();
         }
         return report;
     }
