@@ -1,29 +1,15 @@
 public class MarsRover {
-    private Direction direction;
-    public MarsRover(){
-        direction = Direction.N;
+    MarsRoverOperationImpl marsRoverOperation = new MarsRoverOperationImpl();
+    public String showStatus(){
+        return marsRoverOperation.showStatus();
     }
-    public String showStatus() {
-        return "0:0:"+direction;
-    }
-
-
     public String executeCommand(String command) {
+        String report = "";
         if ("L".equals(command)){
-            switch (direction) {
-                case N -> direction = Direction.W;
-                case W -> direction = Direction.S;
-                case S -> direction = Direction.E;
-                case E -> direction = Direction.N;
-            }
+            report = marsRoverOperation.turnLeft();
         }else if ("R".equals(command)){
-            switch (direction) {
-                case N -> direction = Direction.E;
-                case W -> direction = Direction.N;
-                case S -> direction = Direction.W;
-                case E -> direction = Direction.S;
-            }
+            report = marsRoverOperation.turnRight();
         }
-        return "0:0:"+direction;
+        return report;
     }
 }
