@@ -19,7 +19,7 @@ public class MarsRover {
         if (status.isEmpty() || status.equals(" ")){
             status = showStatus();
         }
-        return marsRoverOperation.moreCommand(command, status);
+        return marsRoverOperation.moreCommands(command, status);
     }
 
 }

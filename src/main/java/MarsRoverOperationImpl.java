@@ -46,7 +46,32 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
     }
 
     @Override
-    public String moreCommand(String command,String status) {
+    public String moreCommands(String command,String status) {
+        // 解析状态 (x:y:direction)
+        String[] parts = status.split(":");
+        x = Integer.parseInt(parts[0]);
+        y = Integer.parseInt(parts[1]);
+        direction = Direction.valueOf(parts[2]);
+
+        // 执行多个步骤
+        for (char c : command.toCharArray()) {
+            switch (c) {
+                case 'M': // 移动
+                    switch (direction) {
+                        case N -> y++; // 北，y+1
+                        case S -> y--; // 南，y-1
+                        case E -> x++; // 东，x+1
+                        case W -> x--; // 西，x-1
+                    }
+                    break;
+                case 'L': // 左转
+                    turnLeft();
+                    break;
+                case 'R': // 右转
+                    turnRight();
+                    break;
+            }
+        }
         return x + ":" + y + ":" + direction;
     }
 }

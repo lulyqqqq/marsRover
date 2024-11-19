@@ -7,5 +7,5 @@ public interface MarsRoverOperation {
 
     String move();
 
-    String moreCommand(String command,String status);
+    String moreCommands(String command,String status);
 }
