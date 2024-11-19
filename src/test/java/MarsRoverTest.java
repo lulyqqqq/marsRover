@@ -114,7 +114,7 @@ public class MarsRoverTest {
     }
 
     @Test
-    public void should_face_north_when_orient_west_and_move(){
+    public void when_orient_north_and_move(){
         //Given
         MarsRover marsRover = new MarsRover();
         //When
@@ -122,6 +122,7 @@ public class MarsRoverTest {
         //Then
         assertEquals("0:1:N",report);
     }
+
 
 
 }
