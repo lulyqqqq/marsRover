@@ -19,7 +19,7 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
             case S -> direction = Direction.E;
             case E -> direction = Direction.N;
         }
-        return x+":"+y+":"+direction;
+        return showStatus();
     }
 
     @Override
@@ -30,48 +30,46 @@ public class MarsRoverOperationImpl implements MarsRoverOperation {
             case S -> direction = Direction.W;
             case E -> direction = Direction.S;
         }
-        return  x+":"+y+":"+direction;
+        return  showStatus();
     }
 
     @Override
     public String move() {
         switch (direction) {
-            case N -> y++; // 北，y+1
-            case S -> y--; // 南，y-1
-            case E -> x++; // 东，x+1
-            case W -> x--; // 西，x-1
+            case N -> y++;
+            case S -> y--;
+            case E -> x++;
+            case W -> x--;
         }
 
-        return x + ":" + y + ":" + direction;
+        return showStatus();
     }
 
     @Override
     public String moreCommands(String command,String status) {
-        // 解析状态 (x:y:direction)
         String[] parts = status.split(":");
         x = Integer.parseInt(parts[0]);
         y = Integer.parseInt(parts[1]);
         direction = Direction.valueOf(parts[2]);
 
-        // 执行多个步骤
         for (char c : command.toCharArray()) {
             switch (c) {
                 case 'M': // 移动
                     switch (direction) {
-                        case N -> y++; // 北，y+1
-                        case S -> y--; // 南，y-1
-                        case E -> x++; // 东，x+1
-                        case W -> x--; // 西，x-1
+                        case N -> y++;
+                        case S -> y--;
+                        case E -> x++;
+                        case W -> x--;
                     }
                     break;
-                case 'L': // 左转
+                case 'L':
                     turnLeft();
                     break;
-                case 'R': // 右转
+                case 'R':
                     turnRight();
                     break;
             }
         }
-        return x + ":" + y + ":" + direction;
+        return showStatus();
     }
 }
