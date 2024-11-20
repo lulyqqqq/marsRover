@@ -1,11 +1,11 @@
 public interface Orientation {
-    public Direction getDirection();
+    Direction getDirection();
 
-    public Orientation turnLeft();
+    Orientation turnLeft();
 
-    public Orientation turnRight();
+    Orientation turnRight();
 
-    public Coordinate moveForward(Coordinate coordinate);
+    Coordinate moveForward(Coordinate coordinate);
 
-    public Coordinate moveBackward(Coordinate coordinate);
+    Coordinate moveBackward(Coordinate coordinate);
 }
